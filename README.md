@@ -13,6 +13,7 @@ The app's core functionality remains consistent across both platforms, offering 
 
 ### Key Features
 - **Month and Year Navigation**: Seamlessly move between different months and years using buttons or keyboard shortcuts.
+  - Note: In PyGame edition, use the "up" and "down" keys on keyboard to navigate through years.
 - **Today's Date Highlighting**: Easily identify the current date on the calendar (PyGame edition only).
 - **Year Range Validation**: Ensures the calendar stays within the range from 1970 to 9999.
 

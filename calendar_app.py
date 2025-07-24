@@ -107,7 +107,7 @@ class CalendarApp:
         surface.blit(month_surf, (screen_width//2 -
                      month_surf.get_width()//2, 20))
         
-        hint_text = "Click buttons or use LEFT/RIGHT/SPACE to navigate"
+        hint_text = "Navigate by clicking buttons, or with arrow keys or SPACE"
         hint_surf = small_font.render(hint_text, True, (150, 150, 180))
         surface.blit(hint_surf, (screen_width//2 -
                      hint_surf.get_width()//2, 140))
@@ -222,12 +222,21 @@ class CalendarApp:
 
     def check_keydown(self, event):
         match event.key:
+            case pygame.K_UP:
+                self.current_date = self.current_date.replace(
+                    year=self.current_date.year+1)
+                self.clamp_year_num()
+            case pygame.K_DOWN:
+                self.current_date = self.current_date.replace(
+                    year=self.current_date.year-1)
+                self.clamp_year_num()
             case pygame.K_LEFT:
                 self.prev_month()
             case pygame.K_RIGHT:
                 self.next_month()
             case pygame.K_SPACE:
                 self.go_today()
+            
 
     def handle_events(self):
         mouse_pos = pygame.mouse.get_pos()
